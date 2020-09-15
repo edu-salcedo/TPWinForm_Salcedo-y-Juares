@@ -1,0 +1,9 @@
+C:\Users\Edwin salcedo\source\repos\actividad2\Datos\bin\Debug\Datos.dll
+C:\Users\Edwin salcedo\source\repos\actividad2\Datos\bin\Debug\Datos.pdb
+C:\Users\Edwin salcedo\source\repos\actividad2\Datos\bin\Debug\Dominio.dll
+C:\Users\Edwin salcedo\source\repos\actividad2\Datos\bin\Debug\Dominio.pdb
+C:\Users\Edwin salcedo\source\repos\actividad2\Datos\obj\Debug\Datos.csprojAssemblyReference.cache
+C:\Users\Edwin salcedo\source\repos\actividad2\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\Edwin salcedo\source\repos\actividad2\Datos\obj\Debug\Datos.csproj.CopyComplete
+C:\Users\Edwin salcedo\source\repos\actividad2\Datos\obj\Debug\Datos.dll
+C:\Users\Edwin salcedo\source\repos\actividad2\Datos\obj\Debug\Datos.pdb
