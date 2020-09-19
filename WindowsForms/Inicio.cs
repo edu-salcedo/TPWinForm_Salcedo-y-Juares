@@ -55,7 +55,7 @@ namespace WindowsForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            venatna2 venta2 = new venatna2();
+            frmVentana2 venta2 = new frmVentana2();
             venta2.ShowDialog();
         }
 

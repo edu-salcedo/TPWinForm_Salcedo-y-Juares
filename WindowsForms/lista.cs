@@ -23,5 +23,10 @@ namespace WindowsForms
             DArticulo arti = new DArticulo();
             dgvlista.DataSource = arti.listar();
         }
+
+        private void dgvlista_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

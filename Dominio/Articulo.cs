@@ -12,8 +12,12 @@ namespace Dominio
         private int id;
         public string codigo { get; set; }
         public string nombre { get; set; }
-        public string descripcion{ get; set; }
+        public string descripcion { get; set; }
 
+        public string imagenURL { get; set; }
+        public decimal precio { get; set; }
+        public Marca marca { get; set; }
+        public Categoria categoria { get; set; }
     }
 }
 

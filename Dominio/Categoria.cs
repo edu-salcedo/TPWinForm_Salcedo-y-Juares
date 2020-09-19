@@ -6,9 +6,21 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Categoria
+    public class Categoria
     {
-        private int id;
+        public int id;
         public string nombre{ get; set; }
+
+        public Categoria() { }
+
+        public Categoria(int Id, string Descripcion)
+        {
+            id = Id;
+            nombre = Descripcion;
+        }
+        public override string ToString()
+        {
+            return nombre;
+        }
     }
 }
