@@ -17,9 +17,9 @@ namespace Datos
             SqlDataReader lector;
             List<Articulo> lista = new List<Articulo>();
 
-            conexion.ConnectionString = "data source=T480S-JMJ\\SQLEXPRESS; initial catalog=CATALOGO_DB; integrated security=sspi ";
+            conexion.ConnectionString = "data source=DESKTOP-8E98HER\\SQLEXPRESS; initial catalog=CATALOGO_DB; integrated security=sspi ";
             comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = "select A.Codigo, A.Nombre, A.Descripcion, M.Descripcion, C.Descripcion from ARTICULOS as A, MARCAS AS M, CATEGORIAS AS C WHERE A.IdMarca = M.Id AND A.IdCategoria = C.Id";
+            comando.CommandText = "select A.Codigo, A.Nombre,A.Descripcion,A.ImagenUrl,M.Descripcion ,C.Descripcion from ARTICULOS A ,MARCAS M, CATEGORIAS C where A.idmarca=M.id AND	A.IdCategoria=C.id";
             comando.Connection = conexion;
 
             conexion.Open();
@@ -31,30 +31,29 @@ namespace Datos
                 aux.codigo = lector.GetString(0);
                 aux.nombre = lector.GetString(1);
                 aux.descripcion = lector.GetString(2);
-
+                aux.imagen = (string)lector["ImagenUrl"];
                 aux.marca = new Marca();
-                aux.marca.nombre = lector.GetString(3);
-
+                aux.marca.nombre = lector.GetString(4);
                 aux.categoria = new Categoria();
-                aux.categoria.nombre = lector.GetString(4);
+                aux.categoria.nombre = lector.GetString(5);
 
                 lista.Add(aux);
             }
-            lector.Close();
             conexion.Close();
             return lista;
-        } 
-        
-        public void alta(Articulo nuevo)
+
+
+        }
+        public void agregar(Articulo nuevo)
         {
             SqlConnection conexion = new SqlConnection();
             SqlCommand comando = new SqlCommand();
 
-            conexion.ConnectionString = "data source=T480S-JMJ\\SQLEXPRESS; initial catalog=CATALOGO_DB; integrated security=sspi ";
+            conexion.ConnectionString = "data source=DESKTOP-8E98HER\\SQLEXPRESS; initial catalog=CATALOGO_DB; integrated security=sspi ";
             comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = "INSERT INTO ARTICULOS (Codigo,Nombre,Descripcion,IdMarca,IdCategoria,ImagenURL,Precio) VALUES ('" + nuevo.codigo + "','" + nuevo.nombre + "','" + nuevo.descripcion + "',@IdMarca,@IdCategoria,'" + nuevo.imagenURL + "','" + nuevo.precio + "')";
-            comando.Parameters.AddWithValue("@IdMarca", nuevo.marca.id);
-            comando.Parameters.AddWithValue("@IdCategoria", nuevo.categoria.id);
+            comando.CommandText = "insert into ARTICULOS(Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio)values('" + nuevo.codigo + "', '" + nuevo.nombre + "', '" + nuevo.descripcion + "',@idMarca,@idcat, '" + nuevo.imagen + "', 1)";
+            comando.Parameters.AddWithValue("@idMarca", nuevo.marca.id);
+            comando.Parameters.AddWithValue("@idcat", nuevo.categoria.id);
             comando.Connection = conexion;
 
             conexion.Open();

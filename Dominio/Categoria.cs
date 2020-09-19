@@ -8,15 +8,16 @@ namespace Dominio
 {
     public class Categoria
     {
-        public int id;
-        public string nombre{ get; set; }
+        public int id { get; set; }
+        public string nombre { get; set; }
+        public Categoria()
+        {
 
-        public Categoria() { }
-
-        public Categoria(int Id, string Descripcion)
+        }
+        public Categoria(int Id, string nom)
         {
             id = Id;
-            nombre = Descripcion;
+            nombre = nom;
         }
         public override string ToString()
         {

@@ -14,10 +14,11 @@ namespace Dominio
         public string nombre { get; set; }
         public string descripcion { get; set; }
 
-        public string imagenURL { get; set; }
-        public decimal precio { get; set; }
+        public string imagen { get; set; }
+        
         public Marca marca { get; set; }
         public Categoria categoria { get; set; }
+        public float precio { get; set; }
     }
 }
 

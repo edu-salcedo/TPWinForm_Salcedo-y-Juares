@@ -24,14 +24,14 @@ namespace WindowsForms
         }
         private void controlbutton()
         {
-            if (nombre.Text.Trim() != String.Empty && nombre.Text.All(char.IsLetter))
+            if (nombre.Text.Trim() != String.Empty && nombre.Text.All(char.IsLetter)) // si no esta vacio y todas son letras
             {
                 btnIngresar.Enabled = true;
                 errorProvider1.SetError(nombre, "");
             }
             else
             {
-                if (!(nombre.Text.All(char.IsLetter)))
+                if (!(nombre.Text.All(char.IsLetter)))   // si no son todas letras
                 {
                     errorProvider1.SetError(nombre, "el nombre solo debe contener letras");
                 }
@@ -55,7 +55,7 @@ namespace WindowsForms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmVentana2 venta2 = new frmVentana2();
+            ventana2 venta2 = new ventana2(nombre.Text);
             venta2.ShowDialog();
         }
 

@@ -17,9 +17,9 @@ namespace Datos
             SqlDataReader lector;
             List<Categoria> lista = new List<Categoria>();
 
-            conexion.ConnectionString = "data source= T480S-JMJ\\SQLEXPRESS; initial catalog=CATALOGO_DB; integrated security=sspi";
+            conexion.ConnectionString = "data source=DESKTOP-8E98HER\\SQLEXPRESS; initial catalog=CATALOGO_DB; integrated security=sspi ";
             comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = "SELECT Id, Descripcion FROM CATEGORIAS";
+            comando.CommandText = "select id, Descripcion from CATEGORIAS";
             comando.Connection = conexion;
 
             conexion.Open();
@@ -27,11 +27,14 @@ namespace Datos
 
             while (lector.Read())
             {
-                lista.Add(new Categoria((int)lector["Id"], (string)lector["Descripcion"]));
+                lista.Add(new Categoria((int)lector["id"], (string)lector["Descripcion"]));
+
             }
             lector.Close();
             conexion.Close();
             return lista;
+
+
         }
     }
 }

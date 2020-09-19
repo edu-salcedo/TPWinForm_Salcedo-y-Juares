@@ -8,22 +8,22 @@ namespace Dominio
 {
     public class Marca
     {
-        public int id;
+        public int id { get; set; }
 
-        public string nombre{ get; set; }
+        public string nombre { get; set; }
 
-        public Marca (int Id, string desc)
+        public Marca()
+        {
+
+        }
+        public Marca(int Id, string nom)
         {
             id = Id;
-
-            nombre = desc;
+            nombre = nom;
         }
-        
-        public Marca() { }
-
         public override string ToString()
         {
-            return nombre; 
+            return nombre;
         }
     }
 }
