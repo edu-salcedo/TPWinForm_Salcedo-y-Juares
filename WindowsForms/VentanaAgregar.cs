@@ -31,10 +31,12 @@ namespace WindowsForms
             cbMarca.DataSource = marca.listar();    // llena el comno box con la lista de marcas
             cbMarca.ValueMember = "id";
             cbMarca.DisplayMember = "nombre";
+            cbMarca.SelectedIndex = -1;
             DCategoria cat = new DCategoria();
             cbCategoria.DataSource = cat.listar();    // llena el comno box con la lista de categorias
             cbCategoria.ValueMember = "id";
             cbCategoria.DisplayMember = "nombre";
+            cbCategoria.SelectedIndex = -1;
 
             if (articulo != null)
             {
@@ -42,10 +44,9 @@ namespace WindowsForms
                 texCodigo.Text = articulo.codigo;
                 textDescripcion.Text = articulo.descripcion;
                 tbImagen.Text = articulo.imagen;
-
+                texPrecio.Text =Convert.ToString(articulo.precio); 
 
                 cbMarca.SelectedValue = articulo.marca.nombre;
-
                 cbCategoria.SelectedValue = articulo.categoria.nombre;
             }
 
@@ -61,10 +62,16 @@ namespace WindowsForms
             arti.descripcion = textDescripcion.Text;    //      "        descripcion   "     "      "
             arti.marca = (Marca)cbMarca.SelectedItem;
             arti.categoria = (Categoria)cbCategoria.SelectedItem;
+            arti.precio= decimal.Parse(texPrecio.Text);
 
-
-            darti.agregar(arti);                   //  se llama funcion agregar y se manda parametro articulo con los valores ingresados
-
+            if (arti.id == 0)
+            {
+                darti.agregar(arti);                   //  se llama funcion agregar y se manda parametro articulo con los valores ingresados
+            }
+            else
+            {
+                darti.editar(arti);                    //se llama funcion etitar
+            }
             this.Close();
         }
 

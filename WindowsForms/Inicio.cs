@@ -59,5 +59,6 @@ namespace WindowsForms
             venta2.ShowDialog();
         }
 
+     
     }
 }
